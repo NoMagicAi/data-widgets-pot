@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello from Flask</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello, Example App!</h1>
+      <!--<pre>{{ query_res }}</pre>-->
+      {{ table | safe }}
+    </div>
+  </body>
