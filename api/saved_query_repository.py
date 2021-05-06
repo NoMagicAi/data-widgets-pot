@@ -68,4 +68,4 @@ class SavedQueryRepository:
                     raise ValueError("No specification for query params. Please add the 'params' section.")
                 if expected_param not in query["params"]:
                     raise ValueError(f"No specification for this param: {expected_param}. "
-                                     f"Please add it to the 'param' section.")
+                                     f"Please add it to the 'params' section.")
