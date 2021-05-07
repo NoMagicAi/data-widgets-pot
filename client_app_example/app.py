@@ -22,19 +22,35 @@ def hello():
     #     json={"sql": "SELECT 7 AS test UNION ALL SELECT 8 AS test;"}
     # )
 
-    res = requests.post(
+    res1 = requests.post(
         f"{API_URL}{ENDPOINT_BQ}",
-        json={"slug": "kpi-competec-lab"}
+        json={"slug": "kpi-competec-lab", "values": {"evaluation_id": 3660}}
     )
 
-    table_html = ""
-    res_json = json.loads(res.text)
-    if 'result' in res_json:
-        query_result = json.loads(res_json['result'])
-        df = pd.DataFrame(query_result)
-        table_html = Table.simple(df)
+    res1_json = json.loads(res1.text)
+    if 'result' in res1_json:
+        query_result = json.loads(res1_json['result'])
+        df1 = pd.DataFrame(query_result)
+        table1_html = Table.simple(df1)
+    #
+    # res2 = requests.post(
+    #     f"{API_URL}{ENDPOINT_BQ}",
+    #     json={"slug": "kpi-competec-lab-all"}
+    # )
+    #
+    # res2_json = json.loads(res2.text)
+    # if 'result' in res2_json:
+    #     query_result = json.loads(res2_json['result'])
+    #     df2 = pd.DataFrame(query_result)
+    #     table2_html = Table.simple(df2)
 
-    return render_template('hello.html', query_res=res.text, table=table_html)
+    return render_template(
+        'hello.html',
+        query1_res=res1.text,
+        table1=table1_html,
+        #query2_res=res2.text,
+        #table2=table2_html
+    )
 
 
 if __name__ == "__main__":

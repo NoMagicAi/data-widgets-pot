@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from google.cloud import bigquery
 
-from api.saved_query_repository import SavedQueryRepository
-from api.query_parser import QueryParser
+from saved_query_repository import SavedQueryRepository
+from query_parser import QueryParser
 
 app = Flask(__name__)
 
@@ -30,6 +30,7 @@ def echo():
 
 
 # @TODO typing
+# @TODO whenever it throws, it should return an error message, not 500 [Julia]
 @app.route("/api/v1/query/", methods=['POST'])
 def query():
     if not request.is_json:

@@ -23,13 +23,26 @@ class SavedQueries:
 SAVED_QUERIES = {
   "bigquery": [
     {
-      "slug": "kpi-competec-lab", # OPTIONAL, maybe different identifiers possible
+      "slug": "kpi-competec-lab-all", # OPTIONAL, maybe different identifiers possible
       "sql": """
             SELECT robot_name, evaluation_id, all_requests, injection_success_rate, soft_failure_rate hard_failure_rate 
             FROM `staging-nomagic-ai.kpi_v2.kpi_competec`
             ORDER BY evaluation_id DESC 
             LIMIT 100;
         """ # REQUIRED
+    },
+    {
+      "slug": "kpi-competec-lab", # OPTIONAL, maybe different identifiers possible
+      "sql": """
+            SELECT robot_name, evaluation_id, all_requests, injection_success_rate, soft_failure_rate hard_failure_rate 
+            FROM `staging-nomagic-ai.kpi_v2.kpi_competec`
+            WHERE evaluation_id = {% evaluation_id %};
+        """, # REQUIRED
+      "params": { # OPTIONAL
+          "evaluation_id": {
+              "type": "int" # REQUIRED int | str
+          }
+      }
     }
   ]
 }
