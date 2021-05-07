@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from google.cloud import bigquery
 
-from saved_query_repository import SavedQueryRepository
-from query_parser import QueryParser
+from api.saved_query_repository import SavedQueryRepository
+from api.query_parser import QueryParser
 
 app = Flask(__name__)
 

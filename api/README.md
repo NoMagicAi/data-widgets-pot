@@ -1,15 +1,3 @@
-
-# BQ API 
-
-PoT but actually not much is missed for it to work as a real thing.
-
-#### Runnig on local:
-`python -m app`
-
-#### Runnig tests on local:
-`pytest`
-
-
 ## API Reference
 
 #### Hello wolrd
