@@ -8,3 +8,4 @@ PoT but actually not much is missed for it to work as a real thing.
 [Client app README](./client_app_example/README.md)
 
 ![example client app screen](./api_screen.png)
+(https://github.com/NoMagicAi/data-widgets-pot/blob/main/api_screen.png?raw=true)
